@@ -1,0 +1,127 @@
+#map-canvas {
+  height: 400px;
+  width: 500px;
+}
+.card-shadow {
+  -webkit-box-shadow: 0 1px 2px #999999;
+  box-shadow: 0 1px 2px #999999;
+  border-radius: 5px;
+  background: #FFF;
+}
+.padTop20 {
+  padding-top: 20px;
+}
+body.login {
+  background: #83aecc;
+}
+body.login h1 {
+  margin-top: 100px;
+  color: #FFF;
+}
+body.login .login-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 50px;
+}
+body.login .login-container .btn-default {
+  width: 100%;
+  text-align: left;
+  color: #FFF;
+  padding: 0;
+  border: none;
+  height: 42px;
+}
+body.login .login-container .btn-default .sm-icon {
+  margin-right: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 12px 12px;
+  width: 35px;
+  float: left;
+}
+body.login .login-container .btn-default span {
+  position: relative;
+  top: 12px;
+}
+body.login .login-container .btn-default.facebook {
+  background: #3b5998;
+}
+body.login .login-container .btn-default.twitter {
+  background: #44ccf6;
+}
+body.login .login-container .btn-default.google {
+  background: #d13f2d;
+}
+body.login .login-container .divider {
+  margin: 20px 0;
+  height: 1px;
+  background: #DFDFDF;
+}
+.navbar {
+  min-height: 75px;
+  border: none;
+  background: #FFF;
+  box-shadow: 0px 3px 3px 0px rgba(51, 51, 51, 0.25);
+  z-index: 2;
+}
+.navbar .logo-container {
+  background: #83aecc;
+  min-height: 75px;
+  padding-top: 12px;
+}
+.navbar .logo-container img {
+  margin: 0 auto;
+  width: 107px;
+  position: relative;
+}
+.navbar .top-nav {
+  min-height: 75px;
+}
+body.dashboard {
+  background-color: #f5f5f5;
+}
+body.dashboard .main {
+  margin-top: 75px;
+  padding-top: 20px;
+}
+body.dashboard .main h1 {
+  margin-top: 10px;
+}
+.sidebar {
+  position: fixed;
+  top: 75px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: block;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #2a2d33;
+}
+.sidebar ul a:hover {
+  text-decoration: none !important;
+}
+.sidebar ul li {
+  padding: 10px 20px;
+  font-weight: bold;
+  color: #7f8083;
+}
+.sidebar ul li:hover {
+  background: #494d56;
+  color: #FFF;
+}
+.sidebar ul .active li {
+  background: #c5c678;
+  color: #FFF;
+}
+.sidebar ul .sidebar-label {
+  text-transform: uppercase;
+  color: #7f8083;
+  font-size: 80%;
+  font-weight: normal;
+  border-bottom: 1px solid #7f8083;
+}
+.sidebar ul .sidebar-label:hover {
+  background: none;
+  color: #7f8083;
+}
