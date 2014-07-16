@@ -2,83 +2,7 @@
 <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
 <Document>
 	<name>KmlFile</name>
-	<Style id="s_ylw-pushpin_hl">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
-			</Icon>
-			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<LineStyle>
-			<color>ff3ff0ff</color>
-			<width>2</width>
-		</LineStyle>
-	</Style>
-	<Style id="sh_ranger_station">
-		<IconStyle>
-			<scale>1.4</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/ranger_station.png</href>
-			</Icon>
-			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
-		</IconStyle>
-		<ListStyle>
-		</ListStyle>
-	</Style>
-	<StyleMap id="msn_ranger_station">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_ranger_station</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_ranger_station</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="s_ylw-pushpin">
-		<IconStyle>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/firedept.png</href>
-			</Icon>
-			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
-		</IconStyle>
-		<ListStyle>
-		</ListStyle>
-	</Style>
-	<StyleMap id="m_ylw-pushpin">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#s_ylw-pushpin0</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#s_ylw-pushpin_hl</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="m_ylw-pushpin0">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#s_ylw-pushpin</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#s_ylw-pushpin_hl0</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="s_ylw-pushpin_hl0">
-		<IconStyle>
-			<scale>1.4</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/firedept.png</href>
-			</Icon>
-			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
-		</IconStyle>
-		<ListStyle>
-		</ListStyle>
-	</Style>
-	<Style id="s_ylw-pushpin0">
+	<Style id="sn_ylw-pushpin">
 		<IconStyle>
 			<scale>1.1</scale>
 			<Icon>
@@ -87,71 +11,108 @@
 			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
 		</IconStyle>
 		<LineStyle>
-			<color>ff3ff0ff</color>
-			<width>2</width>
+			<color>ffff8000</color>
 		</LineStyle>
+		<PolyStyle>
+			<color>80ff8000</color>
+		</PolyStyle>
 	</Style>
-	<Style id="sn_ranger_station">
+	<Style id="sh_ylw-pushpin">
 		<IconStyle>
-			<scale>1.2</scale>
+			<scale>1.3</scale>
 			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/ranger_station.png</href>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
 			</Icon>
-			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
 		</IconStyle>
-		<ListStyle>
-		</ListStyle>
+		<LineStyle>
+			<color>ffff8000</color>
+		</LineStyle>
+		<PolyStyle>
+			<color>80ff8000</color>
+		</PolyStyle>
+	</Style>
+	<StyleMap id="msn_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_ylw-pushpin0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_ylw-pushpin0">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ffff8000</color>
+		</LineStyle>
+		<PolyStyle>
+			<color>80ff8000</color>
+		</PolyStyle>
+	</Style>
+	<Style id="sh_ylw-pushpin0">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ffff8000</color>
+		</LineStyle>
+		<PolyStyle>
+			<color>80ff8000</color>
+		</PolyStyle>
 	</Style>
 	<Folder>
-		<name>Incident #2</name>
-		<open>1</open>
+		<name>Evacuation Zones</name>
 		<Placemark>
-			<name>Banner Fire</name>
-			<description><![CDATA[<h1>Banner Fire</h1>
-more information]]></description>
-			<LookAt>
-				<longitude>-117.1277310191803</longitude>
-				<latitude>32.87270192453099</latitude>
-				<altitude>0</altitude>
-				<heading>-0.02044233631336828</heading>
-				<tilt>0</tilt>
-				<range>20432.966135234</range>
-				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-			</LookAt>
-			<styleUrl>#m_ylw-pushpin0</styleUrl>
-			<Point>
-				<gx:drawOrder>1</gx:drawOrder>
-				<coordinates>-117.1944447828646,32.92750256851129,0</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark>
-			<name>burn area</name>
-			<styleUrl>#m_ylw-pushpin</styleUrl>
-			<LineString>
+			<name>Cocos Fire Evacuation Area</name>
+			<styleUrl>#msn_ylw-pushpin</styleUrl>
+			<Polygon>
 				<tessellate>1</tessellate>
-				<coordinates>
-					-117.1981336511397,32.93690292727597,0 -117.199615056358,32.9369172243218,0 -117.2011007637639,32.93711001779376,0 -117.2023636808894,32.93729072623047,0 -117.2034079152042,32.93746340952845,0 -117.2048667010956,32.93780783460471,0 -117.206959892873,32.93798190773796,0 -117.2082189768604,32.93798363585409,0 -117.2101475679788,32.93819324778698,0 -117.2109903092122,32.93837210290094,0 -117.2124657072763,32.93872931486488,0 -117.2133072492157,32.93873150734235,0 -117.2145697313841,32.93873478839951,0 -117.214989084754,32.93855916593487,0 -117.2149800642948,32.93749895577968,0 -117.2155975376377,32.93643709126718,0 -117.2155856887918,32.93572637187328,0 -117.2155649590546,32.93448303813864,0 -117.2155442429483,32.9332402426783,0 -117.2155264924508,32.93217541049406,0 -117.2155205786619,32.93182055056246,0 -117.2155057924622,32.93093361190941,0 -117.2146504614701,32.93004513585755,0 -117.2135911991301,32.92951107652076,0 -117.2125294060949,32.92879995128867,0 -117.2114736682261,32.92844339150438,0 -117.2106733849173,32.92829292509096,0 -117.2096717815566,32.92797283981579,0 -117.2086691060448,32.92765241458542,0 -117.2078546719897,32.92731772231395,0 -117.2076450946332,32.92661534415485,0 -117.2072104649064,32.92607828016803,0 -117.2072290286711,32.92503695780597,0 -117.2070163578642,32.92450812982739,0 -117.2063692439976,32.92344276678579,0 -117.2052642696981,32.92323028346728,0 -117.2050488836766,32.92287553800429,0 -117.2039458003606,32.92266363441598,0 -117.2020064428555,32.92262636549233,0 -117.2006956797097,32.92241313971121,0 -117.199626392496,32.92222129472452,0 -117.1983553674833,32.92220891608734,0 -117.1973179878401,32.92221372395626,0 -117.1964883564247,32.92221784086579,0 -117.195454336794,32.92257526086063,0 -117.1944200537996,32.9229327657798,0 -117.193802161989,32.92346448135247,0 -117.1929734521458,32.92364488696784,0 -117.1915217045156,32.92382846820209,0 -117.1904849172458,32.92400998389516,0 -117.1894479101044,32.92419153499517,0 -117.1886213122025,32.92472471082809,0 -117.1882100859563,32.92525589392673,0 -117.1875966150147,32.92649390750562,0 -117.1871893865583,32.92755481515357,0 -117.1869772780292,32.92807745434825,0 -117.1867621322142,32.92859717874975,0 -117.1857099666734,32.92964112501384,0 -117.1852851545524,32.93033472723464,0 -117.1848554405192,32.93137311500515,0 -117.1848479423687,32.93189045706494,0 -117.1848354531272,32.9327523573555,0 -117.1848204716925,32.93378610749939,0 -117.1848154834942,32.9341305702861,0 -117.1860617446701,32.93499827633021,0 -117.1868996482202,32.93570086604459,0 -117.1886396918847,32.93699872001359,0 -117.189686863496,32.93735106767302,0 -117.1905302813752,32.93735859440765,0 -117.1915848498416,32.93736799349066,0 -117.1926397620658,32.93737739176947,0 -117.1934839292294,32.93738490244813,0 -117.1939104476251,32.93721768494773,0 -117.1951729934499,32.93687430262545,0 -117.1959911376227,32.93650631642741,0 -117.1970480589719,32.93651647113721,0 -117.1972594889268,32.93651850174965,0
-				</coordinates>
-			</LineString>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							-117.2950755522914,33.12935273043831,0 -117.2640703909946,33.04962462586297,0 -117.2497396084744,33.03494375165187,0 -117.2363832566277,33.06881949724584,0 -117.2116309297504,33.08930801288665,0 -117.20447212722,33.1298807741177,0 -117.2454018120063,33.15872905128049,0 -117.2950755522914,33.12935273043831,0
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
 		</Placemark>
 		<Placemark>
-			<name>Nearby Elementary School</name>
-			<description>This school has been evacuated due to poor air quality</description>
-			<LookAt>
-				<longitude>-117.1277310191803</longitude>
-				<latitude>32.87270192453099</latitude>
-				<altitude>0</altitude>
-				<heading>-0.02044233631336828</heading>
-				<tilt>0</tilt>
-				<range>20432.966135234</range>
-				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-			</LookAt>
-			<styleUrl>#msn_ranger_station</styleUrl>
-			<Point>
-				<gx:drawOrder>1</gx:drawOrder>
-				<coordinates>-117.2178496010091,32.91804034575002,0</coordinates>
-			</Point>
+			<name>Bernardo Fire Evacuation Area</name>
+			<styleUrl>#msn_ylw-pushpin0</styleUrl>
+			<Polygon>
+				<tessellate>1</tessellate>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							-117.0946960100607,33.00452739281414,0 -117.0808670439505,33.00557815722082,0 -117.0824355430171,33.02786343998886,0 -117.1181929656591,33.0198234187755,0 -117.0946960100607,33.00452739281414,0
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
 		</Placemark>
 	</Folder>
 </Document>
 </kml>
+

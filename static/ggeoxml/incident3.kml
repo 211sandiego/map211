@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>KmlFile</name>
+	<Style id="sh_lodging">
+		<IconStyle>
+			<scale>1.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/lodging.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+		<ListStyle>
+		</ListStyle>
+	</Style>
+	<Style id="sn_lodging">
+		<IconStyle>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/lodging.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+		<ListStyle>
+		</ListStyle>
+	</Style>
+	<Style id="sh_lodging0">
+		<IconStyle>
+			<scale>1.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/lodging.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+		<ListStyle>
+		</ListStyle>
+	</Style>
+	<StyleMap id="msn_lodging">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_lodging</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_lodging0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_lodging0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_lodging0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_lodging</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_lodging0">
+		<IconStyle>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/lodging.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+		<ListStyle>
+		</ListStyle>
+	</Style>
+	<Folder>
+		<name>Shelters</name>
+		<Placemark>
+			<name>Cocos Fire Shelter</name>
+			<description>05/17/2014-07:20:PM PST
+
+Update:
+
+Last Shelter to Close at 7 p.m.
+
+The shelter at Mission Hills High School in San Marcos closed at 7 p.m. The American Red Cross worked with the few residents remaining at the shelter this afternoon to provide a place for them to stay. Anyone in need of assistance can contact the Red Cross at (800) 733-2767,  and press option 5.
+
+For the latest emergency updates, visit www.sdcountyemergency.com. If you need to talk to someone about evacuations, shelters, road closures and other disaster-related services, call 211.  </description>
+			<LookAt>
+				<longitude>-117.1431780004546</longitude>
+				<latitude>33.1448700017629</latitude>
+				<altitude>0</altitude>
+				<heading>-2.485921539031885e-10</heading>
+				<tilt>0</tilt>
+				<range>999.9999983794588</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_lodging0</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-117.1431780004546,33.1448700017629,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Bernardo Fire Shelter #1</name>
+			<LookAt>
+				<longitude>-117.0049162262048</longitude>
+				<latitude>32.994245801213</latitude>
+				<altitude>0</altitude>
+				<heading>-0.2196073199398311</heading>
+				<tilt>17.17236521639902</tilt>
+				<range>32232.02652871232</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_lodging</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-117.0623249959319,32.98421465652984,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Bernardo Fire Shelter #2</name>
+			<description>Accepts Pets</description>
+			<LookAt>
+				<longitude>-117.0049162262048</longitude>
+				<latitude>32.994245801213</latitude>
+				<altitude>0</altitude>
+				<heading>-0.2196073199398311</heading>
+				<tilt>17.17236521639902</tilt>
+				<range>32232.02652871232</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_lodging</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-117.044761015805,32.93320879926983,0</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>

@@ -5,6 +5,7 @@ var geocoder;
 var map;
 var incident1;
 var incident2;
+var incident3;
 
 function initialize() {
     geocoder = new google.maps.Geocoder();
@@ -26,10 +27,16 @@ function initialize() {
         url: 'http://map211.herokuapp.com/ggeoxml/incident2.kml', preserveViewport: true
     });
     incident2.setMap(map);
+
+    incident3 = new google.maps.KmlLayer({
+        url: 'http://map211.herokuapp.com/ggeoxml/incident3.kml', preserveViewport: true
+    });
+    incident3.setMap(map);
 }
 
 var incident1shown = "true";
 var incident2shown = "true";
+var incident3shown = "true";
 
 function toggleIncident1() {
     if ( incident1shown == "true" ) {
@@ -50,6 +57,17 @@ function toggleIncident2() {
     else {
         incident2.setMap(map);
         incident2shown = "true";
+    }
+}
+
+function toggleIncident3() {
+    if ( incident3shown == "true" ) {
+        incident3.setMap(null);
+        incident3shown = "false";
+    }
+    else {
+        incident3.setMap(map);
+        incident3shown = "true";
     }
 }
 
