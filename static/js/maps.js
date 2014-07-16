@@ -10,7 +10,7 @@ function initialize() {
     geocoder = new google.maps.Geocoder();
     var sandiegocounty = new google.maps.LatLng(32.93, -116.77 );
     var mapOptions = {
-        zoom: 10,
+        zoom: 11,
         center: sandiegocounty
     }
 
@@ -28,12 +28,29 @@ function initialize() {
     incident2.setMap(map);
 }
 
-function toggleIncidentOff() {
-    incident1.setMap(null);
+var incident1shown = "true";
+var incident2shown = "true";
+
+function toggleIncident1() {
+    if ( incident1shown == "true" ) {
+        incident1.setMap(null);
+        incident1shown = "false";
+    }
+    else {
+        incident1.setMap(map);
+        incident1shown = "true";
+    }
 }
 
-function toggleIncidentOn() {
-    incident1.setMap(map);
+function toggleIncident2() {
+    if ( incident2shown == "true" ) {
+        incident2.setMap(null);
+        incident2shown = "false";
+    }
+    else {
+        incident2.setMap(map);
+        incident2shown = "true";
+    }
 }
 
 function codeAddress() {
