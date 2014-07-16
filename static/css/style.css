@@ -205,3 +205,10 @@ body.dashboard .main h1 {
   overflow-y: auto;
   padding: 20px;
 }
+.right-rail p {
+  margin: 0;
+}
+.right-rail h3 {
+  margin: 0;
+  margin-bottom: 20px;
+}

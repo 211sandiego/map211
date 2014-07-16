@@ -72,7 +72,13 @@ function toggleIncident3() {
 }
 
 function codeAddress() {
-    var address = document.getElementById('address').value;
+    if ( $('#streetAddress').val() ) {
+        var address = document.getElementById('streetAddress').value + document.getElementById('city').value + document.getElementById('state').value + document.getElementById('zipCode2').value;
+    }
+    else {
+        var address = document.getElementById('zipCode').value;
+    }
+    
     geocoder.geocode( { 'address': address}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             map.setCenter(results[0].geometry.location);
@@ -88,6 +94,36 @@ function codeAddress() {
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
+function saveZIP() {
+    codeAddress();
+    $('#initialForm').slideUp();
+    var callReason = $('#callReason').val();
+    var zipCode = $('#zipCode').val();
+    $('#reasonDisplay').html( callReason );
+    $('#zipDisplay').html( zipCode );
+    $('.initialResults').slideDown();
+}
+
+function editProfile() {
+    var callReason = $('#callReason').val();
+    var zipCode = $('#zipCode').val();
+    $('#callReason2').val( callReason );
+    $('#zipCode2').val( zipCode );
+    $('.initialResults').slideUp();
+    $('.fullResults').slideUp();
+    $('#fullProfile').slideDown();
+}
+
+function saveProfile() {
+    codeAddress();
+    $('#fullProfile').slideUp();
+    var callReason = $('#callReason2').val();
+    var address = $('#streetAddress').val() + "<br />" + $('#city').val() + ", " + $('#state').val() + " " + $('#zipCode2').val();
+    $('#reasonDisplay2').html( callReason );
+    $('#addressDisplay').html( address );
+    $('.fullResults').slideDown();
+}
+
 function startCall() {
     $('.right-rail').slideDown();
     $('.start-new').replaceWith('<button class="btn btn-primary btn-lg pull-right close-call" onclick="endCall()">End Call</button>');
@@ -96,8 +132,18 @@ function startCall() {
 function endCall() {
     $('.right-rail').slideUp();
     $('.close-call').replaceWith('<button class="btn btn-primary btn-lg pull-right start-new" onclick="startCall()">Start New Call</button>');
+    $('.initialResults').hide();
+    $('#fullProfile').hide();  
+    $('.fullResults').hide();
+    $('#initialForm').show();
 }
 
 $(document).ready(function() {
   $('.right-rail').hide();
+
+  $('.initialResults').hide();
+
+  $('#fullProfile').hide();  
+
+  $('.fullResults').hide();
 });

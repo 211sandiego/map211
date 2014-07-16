@@ -11,11 +11,11 @@
 <div class="navbar-header navbar navbar-fixed-top">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-2 logo-container text-center">
+      <div class="col-sm-3 col-md-2 logo-container text-center">
         <img src="./img/211_logo.png">
       </div>
 
-      <div class="col-md-10 top-nav">
+      <div class="col-sm-9 col-md-10 top-nav">
         <button class="btn btn-primary btn-lg pull-right start-new" onclick="startCall()">Start New Call</button>
       </div>
 
@@ -31,7 +31,7 @@
 					<li class="sidebar-label">Incidents</li>
 					<a href="javascript:toggleIncident1();"><li class=""><span class="glyphicon glyphicon-fire"></span> Cocos Fire</li></a>
 					<a href="javascript:toggleIncident2();"><li><span class="glyphicon glyphicon-fire"></span> Banners Fire</li></a>
-					<a href="javascript:;"><li><span class="glyphicon glyphicon-fire"></span> Bernardo Fire</li></a>
+					<a href="javascript:toggleIncident3();"><li><span class="glyphicon glyphicon-fire"></span> Bernardo Fire</li></a>
 					    
 
 				</ul>
@@ -94,10 +94,155 @@
 		</div>
 
 		<div class="col-sm-2 right-rail">
-			<form action="javascript:codeAddress()">
-	            <input id="address" type="textbox" placeholder="Enter zip code">
-	            <input type="submit" value="Search" class="btn btn-primary">
-	        </form>
+			<!--<div class="row">
+				<div class="col-sm-12">
+					<h1>Caller Information</h1>
+				</div>
+			</div>-->
+
+			<form role="form" action="javascript:saveZIP();" id="initialForm">
+
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group">
+						<label for="callReason">Reason for Calling</label>
+						<select class="form-control" id="callReason">
+							<option value="blank">&nbsp;</option>
+							<option value="General Disaster Updates" label="General Disaster Updates">General Disaster Updates</option>
+						    <option value="Evacuation Areas" label="Evacuation Areas">Evacuation Areas</option>
+						    <option value="Re-population Zones" label="Re-population Zones">Re-population Zones</option>
+						    <option value="Road Closures" label="Road Closures">Road Closures</option>
+						    <option value="Shelter Information" label="Shelter Information">Shelter Information</option>
+						    <option value="Local Assistance Centers" label="Local Assistance Centers">Local Assistance Centers</option>
+						    <option value="Disaster Resources" label="Disaster Resources">Disaster Resources</option>
+						    <option value="Donations" label="Donations">Donations</option>
+						    <option value="Boil Water Alerts" label="Boil Water Alerts">Boil Water Alerts</option>
+						    <option value="County Offices (availability)" label="County Offices (availability)">County Offices (availability)</option>
+						    <option value="School Closures" label="School Closures">School Closures</option>
+						    <option value="Transportation" label="Transportation">Transportation</option>
+						    <option value="Social Media" label="Social Media">Social Media</option>
+						    <option value="Animal Services" label="Animal Services">Animal Services</option>
+						    <option value="Food Safety" label="Food Safety">Food Safety</option>
+						    <option value="Volunteering" label="Volunteering">Volunteering</option>
+						    <option value="Other" label="Other">Other</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group">
+						<label for="zipCode">ZIP code</label>
+						<input type="text" class="form-control" id="zipCode" placeholder="">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<input type="submit" value="Save" class="btn btn-primary">
+				</div>
+			</div>
+			</form>
+
+			<div class="initialResults">
+				<div class="row">
+					<div class="col-sm-12">
+						<p>Reason for calling:</p>
+						<h3 id="reasonDisplay"></h3>
+					</div>
+					<div class="col-sm-12">
+						<p>ZIP code:</p>
+						<h3 id="zipDisplay"></h3>
+					</div>
+
+					<div class="col-sm-12 text-center">
+						<button type="button" class="btn btn-link" onclick="editProfile();"><span class="glyphicon glyphicon-plus-sign"></span> Add more information</button>
+					</div>
+				</div>
+			</div>
+
+			<form role="form" action="javascript:saveProfile();" id="fullProfile">
+
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group">
+						<label for="callReason2">Reason for Calling</label>
+						<select class="form-control" id="callReason2">
+							<option value="blank">&nbsp;</option>
+							<option value="General Disaster Updates" label="General Disaster Updates">General Disaster Updates</option>
+						    <option value="Evacuation Areas" label="Evacuation Areas">Evacuation Areas</option>
+						    <option value="Re-population Zones" label="Re-population Zones">Re-population Zones</option>
+						    <option value="Road Closures" label="Road Closures">Road Closures</option>
+						    <option value="Shelter Information" label="Shelter Information">Shelter Information</option>
+						    <option value="Local Assistance Centers" label="Local Assistance Centers">Local Assistance Centers</option>
+						    <option value="Disaster Resources" label="Disaster Resources">Disaster Resources</option>
+						    <option value="Donations" label="Donations">Donations</option>
+						    <option value="Boil Water Alerts" label="Boil Water Alerts">Boil Water Alerts</option>
+						    <option value="County Offices (availability)" label="County Offices (availability)">County Offices (availability)</option>
+						    <option value="School Closures" label="School Closures">School Closures</option>
+						    <option value="Transportation" label="Transportation">Transportation</option>
+						    <option value="Social Media" label="Social Media">Social Media</option>
+						    <option value="Animal Services" label="Animal Services">Animal Services</option>
+						    <option value="Food Safety" label="Food Safety">Food Safety</option>
+						    <option value="Volunteering" label="Volunteering">Volunteering</option>
+						    <option value="Other" label="Other">Other</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group">
+						<label for="streetAddress">Street Address</label>
+						<input type="text" class="form-control" id="streetAddress" placeholder="">
+					</div>
+				</div>
+
+				<div class="col-sm-12">
+					<div class="form-group">
+						<label for="city">City</label>
+						<input type="text" class="form-control" id="city" placeholder="">
+					</div>
+				</div>
+
+				<div class="col-sm-12">
+					<div class="form-group">
+						<label for="state">State</label>
+						<input type="text" class="form-control" id="state" placeholder="">
+					</div>
+				</div>
+
+				<div class="col-sm-12">
+					<div class="form-group">
+						<label for="zipCode2">ZIP code</label>
+						<input type="text" class="form-control" id="zipCode2" placeholder="">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<input type="submit" value="Save" class="btn btn-primary">
+				</div>
+			</div>
+			</form>
+
+			<div class="fullResults">
+				<div class="row">
+					<div class="col-sm-12">
+						<p>Reason for calling:</p>
+						<h3 id="reasonDisplay2"></h3>
+					</div>
+					<div class="col-sm-12">
+						<p>Address:</p>
+						<h3 id="addressDisplay"></h3>
+					</div>
+
+					<div class="col-sm-12 text-center">
+						<button type="button" class="btn btn-link" onclick="editProfile();">Edit caller information</button>
+					</div>
+				</div>
+			</div>
+
 		</div>
 	</div>
 </div>
