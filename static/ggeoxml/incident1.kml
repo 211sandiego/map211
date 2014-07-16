@@ -128,21 +128,17 @@
 		</Placemark>
 		<Placemark>
 			<name>Cocos Fire</name>
-			<description>Cocos Fire 85 Percent Contained, Highway 100 Percent
-
-05/18/2014-10:05:AM PST
-
-CAL FIRE reported that the Cocos Fire is 85 percent contained as of Sunday morning, with full containment expected Sunday.
-
-A total of 1,995 acres have burned in that fire.
-
-Fire activity has been limited to smoldering within the fire perimeter, and damage inspection teams completed their activities on the Cocos Fire. Firefighters have begun mop up.
-
-CAL FIRE also advised that firefighters fully contained the Highway Fire on Saturday. That fire burned a total of 441 acres.
-
-Acreage amounts may increase or decrease based on additional information about fire perimeters.
-
-The causes of both fires are under investigation. </description>
+			<description><![CDATA[
+                <b>Cocos Fire 85 Percent Contained, Highway 100 Percent</b>
+                <i>05/18/2014-10:05:AM PST</i>
+                <p>CAL FIRE reported that the Cocos Fire is 85 percent contained as of Sunday morning, with full containment expected Sunday.</p>
+                <p>A total of 1,995 acres have burned in that fire.</p>
+                <p>Fire activity has been limited to smoldering within the fire perimeter, and damage inspection teams completed their activities on the Cocos Fire. Firefighters have begun mop up.</p>
+                <p>CAL FIRE also advised that firefighters fully contained the Highway Fire on Saturday. That fire burned a total of 441 acres.</p>
+                <p>Acreage amounts may increase or decrease based on additional information about fire perimeters.</p>
+                <p>The causes of both fires are under investigation.</p>
+            ]]>
+            </description>
 			<LookAt>
 				<longitude>-117.167063030193</longitude>
 				<latitude>33.09168181902761</latitude>
@@ -174,6 +170,10 @@ The causes of both fires are under investigation. </description>
 		</Placemark>
 		<Placemark>
 			<name>Banner Fire</name>
+			<description><![CDATA[
+                <i>05/18/2014-10:05:AM PST</i>
+                <p>This fire is 100% contained</p>
+            ]]>
 			<LookAt>
 				<longitude>-116.6020438386132</longitude>
 				<latitude>33.08018248347007</latitude>
