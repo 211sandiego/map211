@@ -26,17 +26,17 @@ function initialize() {
     incident2 = new google.maps.KmlLayer({
         url: 'http://map211.herokuapp.com/ggeoxml/incident2.kml', preserveViewport: true
     });
-    incident2.setMap(map);
+    //incident2.setMap(map);
 
     incident3 = new google.maps.KmlLayer({
         url: 'http://map211.herokuapp.com/ggeoxml/incident3.kml', preserveViewport: true
     });
-    incident3.setMap(map);
+    //incident3.setMap(map);
 }
 
 var incident1shown = "true";
-var incident2shown = "true";
-var incident3shown = "true";
+var incident2shown = "false";
+var incident3shown = "false";
 
 function toggleIncident1() {
     if ( incident1shown == "true" ) {
@@ -146,4 +146,5 @@ $(document).ready(function() {
   $('#fullProfile').hide();  
 
   $('.fullResults').hide();
+  
 });
