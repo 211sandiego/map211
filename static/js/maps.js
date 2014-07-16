@@ -8,7 +8,7 @@ var incident2;
 
 function initialize() {
     geocoder = new google.maps.Geocoder();
-    var sandiegocounty = new google.maps.LatLng(32.93, -116.77 );
+    var sandiegocounty = new google.maps.LatLng(32.83, -117.18 );
     var mapOptions = {
         zoom: 11,
         center: sandiegocounty

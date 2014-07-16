@@ -20,7 +20,7 @@
 
       <div class="col-md-10 top-nav">
         <form action="javascript:codeAddress()">
-            <input id="address" type="textbox" class="form-control" placeholder="Enter zip code">
+            <input id="address" type="textbox" placeholder="Enter zip code">
             <input type="submit" value="Search" class="btn btn-primary">
         </form>
       </div>
@@ -33,12 +33,59 @@
 	<div class="row">
 		<div class="col-sm-3 col-md-2 sidebar">
 			<nav class="sidebar-nav">
-				<ul class="list-unstyled">
-					<a href="javascript:;" class="active"><li>Overview</li></a>
+				<ul class="list-unstyled incidents">
 					<li class="sidebar-label">Incidents</li>
 					<a href="javascript:toggleIncident1();"><li class=""><span class="glyphicon glyphicon-fire"></span> Cocos Fire</li></a>
 					<a href="javascript:toggleIncident2();"><li><span class="glyphicon glyphicon-fire"></span> Banners Fire</li></a>
 					<a href="javascript:;"><li><span class="glyphicon glyphicon-fire"></span> Bernardo Fire</li></a>
+					    
+
+				</ul>
+
+				<ul class="list-unstyled overlays">
+					<li class="sidebar-label">Overlays</li>
+					<a href="javascript:;"><li class=""><label for="cb1" class="tgl-label">Incident Location</label>
+						<div class="toggle-btn pull-right">
+							<input class="tgl tgl-light" id="cb1" type="checkbox" checked>
+						    <label class="tgl-btn" for="cb1"></label>
+						</div>
+					</li></a>
+
+					<a href="javascript:;"><li class=""><label for="cb2" class="tgl-label">Evacuation Zones</label>
+						<div class="toggle-btn pull-right">
+							<input class="tgl tgl-light" id="cb2" type="checkbox">
+						    <label class="tgl-btn" for="cb2"></label>
+						</div>
+					</li></a>
+
+					<a href="javascript:;"><li class=""><label for="cb3" class="tgl-label">Shelters</label>
+						<div class="toggle-btn pull-right">
+							<input class="tgl tgl-light" id="cb3" type="checkbox">
+						    <label class="tgl-btn" for="cb3"></label>
+						</div>
+					</li></a>
+
+					<a href="javascript:;"><li class=""><label for="cb4" class="tgl-label">Assistance Centers</label>
+						<div class="toggle-btn pull-right">
+							<input class="tgl tgl-light" id="cb4" type="checkbox">
+						    <label class="tgl-btn" for="cb4"></label>
+						</div>
+					</li></a>
+
+					<a href="javascript:;"><li class=""><label for="cb5" class="tgl-label">Road Closures</label>
+						<div class="toggle-btn pull-right">
+							<input class="tgl tgl-light" id="cb5" type="checkbox">
+						    <label class="tgl-btn" for="cb5"></label>
+						</div>
+					</li></a>
+
+					<a href="javascript:;"><li class=""><label for="cb6" class="tgl-label">School Closures</label>
+						<div class="toggle-btn pull-right">
+							<input class="tgl tgl-light" id="cb6" type="checkbox">
+						    <label class="tgl-btn" for="cb6"></label>
+						</div>
+					</li></a>
+					
 				</ul>
 			</nav>
 		</div>
