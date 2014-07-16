@@ -69,3 +69,17 @@ function codeAddress() {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
+
+function startCall() {
+    $('.right-rail').slideDown();
+    $('.start-new').replaceWith('<button class="btn btn-primary btn-lg pull-right close-call" onclick="endCall()">End Call</button>');
+}
+
+function endCall() {
+    $('.right-rail').slideUp();
+    $('.close-call').replaceWith('<button class="btn btn-primary btn-lg pull-right start-new" onclick="startCall()">Start New Call</button>');
+}
+
+$(document).ready(function() {
+  $('.right-rail').hide();
+});

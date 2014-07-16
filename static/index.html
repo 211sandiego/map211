@@ -2,9 +2,6 @@
 <html>
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoOZWu2kCDZfbdR9PNpxhpxamhoJGSBds"></script>
-    <script type="text/javascript" src="./js/maps.js"></script>
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
@@ -19,10 +16,7 @@
       </div>
 
       <div class="col-md-10 top-nav">
-        <form action="javascript:codeAddress()">
-            <input id="address" type="textbox" placeholder="Enter zip code">
-            <input type="submit" value="Search" class="btn btn-primary">
-        </form>
+        <button class="btn btn-primary btn-lg pull-right start-new" onclick="startCall()">Start New Call</button>
       </div>
 
     </div>
@@ -90,7 +84,7 @@
 			</nav>
 		</div>
 
-		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		<div class="col-sm-6 col-sm-offset-3 col-md-7 col-md-offset-2 main">
 			<div class="row">
 				<div class="col-md-6">
 					<div id="map-canvas"></div>
@@ -98,8 +92,19 @@
 			</div>
 			
 		</div>
+
+		<div class="col-sm-2 right-rail">
+			<form action="javascript:codeAddress()">
+	            <input id="address" type="textbox" placeholder="Enter zip code">
+	            <input type="submit" value="Search" class="btn btn-primary">
+	        </form>
+		</div>
 	</div>
 </div>
 
 </body>
+
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoOZWu2kCDZfbdR9PNpxhpxamhoJGSBds"></script>
+<script type="text/javascript" src="./js/maps.js"></script>
 </html>

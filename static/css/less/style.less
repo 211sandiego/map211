@@ -100,6 +100,9 @@ body.login {
   }
   .top-nav {
     min-height: 75px;
+    .start-new, .close-call {
+      margin-top: 15px;
+    }
   }
 }
 
@@ -220,4 +223,18 @@ body.dashboard {
       }
     }
   }
+}
+
+.right-rail {
+  background-color: #DFDFDF;
+  position: fixed;
+  top: 75px;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+  display: block;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 20px;
 }
