@@ -4,29 +4,9 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoOZWu2kCDZfbdR9PNpxhpxamhoJGSBds"></script>
-    <script type="text/javascript">
-        function initialize() {
-            var sandiegocounty = new google.maps.LatLng(32.93, -116.77 );
-            var mapOptions = {
-                zoom: 10,
-                center: sandiegocounty
-            }
-
-            var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
-            var ctaLayer = new google.maps.KmlLayer({
-                url: 'http://map211.herokuapp.com/ggeoxml/incidents.kml'
-            });
-            ctaLayer.setMap(map);
-
-        }
-
-        google.maps.event.addDomListener(window, 'load', initialize);
-
-    </script>
+    <script type="text/javascript" src="./js/maps.js"></script>
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
     <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body class="dashboard">
@@ -39,7 +19,10 @@
       </div>
 
       <div class="col-md-10 top-nav">
-        
+        <form action="javascript:codeAddress()">
+            <input id="address" type="textbox" placeholder="Enter zip code">
+            <input type="submit" value="Search">
+        </form>
       </div>
 
     </div>
@@ -53,8 +36,8 @@
 				<ul class="list-unstyled">
 					<a href="javascript:;" class="active"><li>Overview</li></a>
 					<li class="sidebar-label">Incidents</li>
-					<a href="javascript:;"><li class=""><span class="glyphicon glyphicon-fire"></span> Cocos Fire</li></a>
-					<a href="javascript:;"><li><span class="glyphicon glyphicon-fire"></span> Banners Fire</li></a>
+					<a href="javascript:toggleIncidentOff();"><li class=""><span class="glyphicon glyphicon-fire"></span> Cocos Fire</li></a>
+					<a href="javascript:toggleIncidentOn();"><li><span class="glyphicon glyphicon-fire"></span> Banners Fire</li></a>
 					<a href="javascript:;"><li><span class="glyphicon glyphicon-fire"></span> Bernardo Fire</li></a>
 				</ul>
 			</nav>
