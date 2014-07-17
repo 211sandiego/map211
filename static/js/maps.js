@@ -163,7 +163,7 @@ function codeAddress() {
 function codeAddress2() {
     var place = autocomplete2.getPlace();
     var address = place.formatted_address;
-    $('#fullAddressDisplay').html(fullAddress);
+    $('#fullAddressDisplay').html(address);
 
 
     deleteMarkers();
@@ -262,6 +262,7 @@ function AppViewModel() {
 ko.applyBindings(new AppViewModel());
 
 // END OF KNOCKOUT CODE
+
 
 
 // INITIAL LOAD SCRIPTS
