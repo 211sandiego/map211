@@ -73,9 +73,13 @@ function geolocate() {
   }
 }
 
+var fullAddress;
+
 function addAddress() {
     var place = autocomplete.getPlace();
-    $('#fullAddressDisplay').html(place.formatted_address);
+    var fullAddress = place.formatted_address;
+    $('#fullAddressDisplay').html(fullAddress);
+    $('#address_autocomplete2').val(fullAddress);
 }
 
 
@@ -200,7 +204,6 @@ function AppViewModel() {
     this.city = ko.observable('');
     this.state = ko.observable('');
     this.ZIP = ko.observable('');
-    this.fullAddress = ko.observable('');
 
 }
 
