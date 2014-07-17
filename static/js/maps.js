@@ -104,6 +104,12 @@ function saveZIP() {
     $('.initialResults').slideDown();
 }
 
+function saveInitial() {
+    codeAddress();
+    $('#initialForm').slideUp();
+    $('.profile').slideDown();
+}
+
 function editProfile() {
     var callReason = $('#callReason').val();
     var zipCode = $('#zipCode').val();
@@ -126,20 +132,45 @@ function saveProfile() {
 
 function startCall() {
     $('.right-rail').slideDown();
+    $('.main').removeClass().addClass('col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2 main');
     $('.start-new').replaceWith('<button class="btn btn-primary btn-lg pull-right close-call" onclick="endCall()">End Call</button>');
 }
 
 function endCall() {
     $('.right-rail').slideUp();
+    $('.main').removeClass().addClass('col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main');
     $('.close-call').replaceWith('<button class="btn btn-primary btn-lg pull-right start-new" onclick="startCall()">Start New Call</button>');
-    $('.initialResults').hide();
-    $('#fullProfile').hide();  
-    $('.fullResults').hide();
+    $('.profile').hide();
     $('#initialForm').show();
 }
 
+function editSection(elem) {
+    $(elem).parents('.profile-section').find('.input-container').find('p').fadeOut().parent().find('input, select').fadeIn();
+    $(elem).replaceWith('<div class="saveGroup"><button class="btn btn-primary saveBtn" onclick="javascript:saveSection(this);">Save</button><button class="btn btn-default cancelBtn"  onclick="javascript:saveSection(this);">Cancel</button></div>');
+}
+function saveSection(elem) {
+    $(elem).parents('.profile-section').find('.input-container').find('input, select').fadeOut().parent().find('p').fadeIn();
+    $(elem).parents('.saveGroup').replaceWith('<button class="btn btn-link" onclick="javascript:editSection(this);">Edit</button>');
+}
+
+function AppViewModel() {
+    this.Name = ko.observable('');
+    this.reason = ko.observable('');
+    this.phone = ko.observable('');
+    this.street = ko.observable('');
+    this.city = ko.observable('');
+    this.state = ko.observable('');
+    this.ZIP = ko.observable('');
+}
+
+ko.applyBindings(new AppViewModel());
+
 $(document).ready(function() {
   $('.right-rail').hide();
+
+  //$('#initialForm').hide();
+
+  $('.profile').hide();
 
   $('.initialResults').hide();
 

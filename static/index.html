@@ -84,29 +84,146 @@
 			</nav>
 		</div>
 
-		<div class="col-sm-6 col-sm-offset-3 col-md-7 col-md-offset-2 main">
+		<!--<div class="col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2 main">-->
+		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-xs-12">
 					<div id="map-canvas"></div>
 				</div>
 			</div>
 			
 		</div>
 
-		<div class="col-sm-2 right-rail">
+		<div class="col-sm-3 col-md-2 right-rail">
 			<!--<div class="row">
 				<div class="col-sm-12">
 					<h1>Caller Information</h1>
 				</div>
 			</div>-->
 
-			<form role="form" action="javascript:saveZIP();" id="initialForm">
+			<div class="profile">
+
+				<div class="profile-section">
+					<div class="row">
+						<h3>General</h3>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 profile-group">
+							<label>Name</label>
+							<div class="input-container">
+								<p data-bind="text: Name"></p>
+								<input type="text" class="form-control" data-bind="value: Name">
+							</div>
+							
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 profile-group">
+							<label>Reason for calling</label>
+							<div class="input-container">
+								<p data-bind="text: reason">Evacuation Areas</p>
+								<select class="form-control" id="callReason" data-bind="value: reason">
+									<option value="blank">&nbsp;</option>
+									<option value="General Disaster Updates" label="General Disaster Updates">General Disaster Updates</option>
+								    <option value="Evacuation Areas" label="Evacuation Areas">Evacuation Areas</option>
+								    <option value="Re-population Zones" label="Re-population Zones">Re-population Zones</option>
+								    <option value="Road Closures" label="Road Closures">Road Closures</option>
+								    <option value="Shelter Information" label="Shelter Information">Shelter Information</option>
+								    <option value="Local Assistance Centers" label="Local Assistance Centers">Local Assistance Centers</option>
+								    <option value="Disaster Resources" label="Disaster Resources">Disaster Resources</option>
+								    <option value="Donations" label="Donations">Donations</option>
+								    <option value="Boil Water Alerts" label="Boil Water Alerts">Boil Water Alerts</option>
+								    <option value="County Offices (availability)" label="County Offices (availability)">County Offices (availability)</option>
+								    <option value="School Closures" label="School Closures">School Closures</option>
+								    <option value="Transportation" label="Transportation">Transportation</option>
+								    <option value="Social Media" label="Social Media">Social Media</option>
+								    <option value="Animal Services" label="Animal Services">Animal Services</option>
+								    <option value="Food Safety" label="Food Safety">Food Safety</option>
+								    <option value="Volunteering" label="Volunteering">Volunteering</option>
+								    <option value="Other" label="Other">Other</option>
+								</select>
+							</div>
+							
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<button class="btn btn-link" onclick="javascript:editSection(this);">Edit</button>
+						</div>
+					</div>
+					
+				</div>
+
+				<div class="profile-section">
+					<div class="row">
+						<h3>Contact Information</h3>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 profile-group">
+							<label>Phone number</label>
+							<div class="input-container">
+								<p data-bind="text: phone">&nbsp;</p>
+								<input type="text" class="form-control" data-bind="value: phone">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 profile-group">
+							<label>Street address</label>
+							<div class="input-container">
+								<p data-bind="text: street">&nbsp;</p>
+								<input type="text" class="form-control" data-bind="value: street">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-8 profile-group">
+							<label>City</label>
+							<div class="input-container">
+								<p data-bind="text: city">&nbsp;</p>
+								<input type="text" class="form-control" data-bind="value: city">
+							</div>
+						</div>
+						<div class="col-xs-4 profile-group">
+							<label>State</label>
+							<div class="input-container">
+								<p data-bind="text: state">&nbsp;</p>
+								<input type="text" class="form-control" data-bind="value: state">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 profile-group">
+							<label>ZIP Code</label>
+							<div class="input-container">
+								<p data-bind="text: ZIP"></p>
+								<input type="text" class="form-control" data-bind="value: ZIP">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<button class="btn btn-link" onclick="javascript:editSection(this);">Edit</button>
+						</div>
+					</div>
+				</div>
+			</div><!-- end of profile -->
+
+			<form role="form" action="javascript:saveInitial();" id="initialForm">
+
+			<div class="row">
+				<div class="col-sm-12">
+					<p class="rr-label">Opening your call</p>
+					<p class="narrative">“Thank you for calling 211 San Diego’s disaster information line, my name is [Your Name].   How can I help you today?”</p>
+				</div>
+			</div>
 
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="form-group">
-						<label for="callReason">Reason for Calling</label>
-						<select class="form-control" id="callReason">
+						<label for="callReason" class="rr-label">Initial Reason for Calling</label>
+						<label class="rr-sublabel">We do not need to track the other reasons for calling</label>
+						<select class="form-control" id="callReason" data-bind="value: reason">
 							<option value="blank">&nbsp;</option>
 							<option value="General Disaster Updates" label="General Disaster Updates">General Disaster Updates</option>
 						    <option value="Evacuation Areas" label="Evacuation Areas">Evacuation Areas</option>
@@ -132,8 +249,8 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="form-group">
-						<label for="zipCode">ZIP code</label>
-						<input type="text" class="form-control" id="zipCode" placeholder="">
+						<label for="zipCode" class="rr-label">ZIP code</label>
+						<input type="text" class="form-control" id="zipCode" data-bind="value: ZIP">
 					</div>
 				</div>
 			</div>
@@ -147,12 +264,12 @@
 			<div class="initialResults">
 				<div class="row">
 					<div class="col-sm-12">
-						<p>Reason for calling:</p>
-						<h3 id="reasonDisplay"></h3>
+						<p class="rr-label">Reason for calling:</p>
+						<h3 id="reasonDisplay" class="narrative"></h3>
 					</div>
 					<div class="col-sm-12">
-						<p>ZIP code:</p>
-						<h3 id="zipDisplay"></h3>
+						<p class="rr-label">ZIP code:</p>
+						<h3 id="zipDisplay" class="narrative"></h3>
 					</div>
 
 					<div class="col-sm-12 text-center">
@@ -251,5 +368,6 @@
 
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoOZWu2kCDZfbdR9PNpxhpxamhoJGSBds"></script>
+<script type='text/javascript' src='http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.0.0.js'></script>
 <script type="text/javascript" src="./js/maps.js"></script>
 </html>
