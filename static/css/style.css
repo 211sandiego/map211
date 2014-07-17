@@ -181,6 +181,9 @@ body.dashboard .main h1 {
   position: relative;
   min-height: 34px;
 }
+.right-rail .input-container.location {
+  min-height: 50px;
+}
 .right-rail .input-container p,
 .right-rail .input-container input,
 .right-rail .input-container select {
@@ -206,6 +209,10 @@ body.dashboard .main h1 {
   font-weight: normal;
   font-size: 12px;
   margin-top: -5px;
+  color: #999;
+}
+.right-rail .rr-label {
+  display: block;
 }
 .right-rail .narrative {
   font-weight: bold;

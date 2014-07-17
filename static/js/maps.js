@@ -6,8 +6,12 @@ var map;
 var incident1;
 var incident2;
 var incident3;
+var placeSearch, autocomplete;
 
 function initialize() {
+
+    // STANDARD MAP SETUP
+
     geocoder = new google.maps.Geocoder();
     var sandiegocounty = new google.maps.LatLng(32.93, -116.98 );
     var mapOptions = {
@@ -16,6 +20,8 @@ function initialize() {
     }
 
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+    // ADD LAYERS
 
     incident1 = new google.maps.KmlLayer({
         url: 'http://map211.herokuapp.com/ggeoxml/incident1.kml', preserveViewport: true
@@ -32,7 +38,51 @@ function initialize() {
         url: 'http://map211.herokuapp.com/ggeoxml/incident3.kml', preserveViewport: true
     });
     //incident3.setMap(map);
+
+
+    //  ADDRESS AUTOCOMPLETE
+
+    // Create the autocomplete object, restricting the search
+    // to geographical location types.
+    autocomplete = new google.maps.places.Autocomplete(
+      /** @type {HTMLInputElement} */(document.getElementById('address_autocomplete')),
+      { types: ['geocode'] });
+    autocomplete2 = new google.maps.places.Autocomplete(
+      /** @type {HTMLInputElement} */(document.getElementById('address_autocomplete2')),
+      { types: ['geocode'] });
+    // When the user selects an address from the dropdown,
+    // populate the address fields in the form.
+    google.maps.event.addListener(autocomplete, 'place_changed', function() {
+        addAddress();
+    });
+    google.maps.event.addListener(autocomplete2, 'place_changed', function() {
+        addAddress();
+    });
 }
+
+// Bias the autocomplete object to the user's geographical location,
+// as supplied by the browser's 'navigator.geolocation' object.
+function geolocate() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var geolocation = new google.maps.LatLng(
+          position.coords.latitude, position.coords.longitude);
+      autocomplete.setBounds(new google.maps.LatLngBounds(geolocation,
+          geolocation));
+    });
+  }
+}
+
+function addAddress() {
+    var place = autocomplete.getPlace();
+    $('#fullAddressDisplay').html(place.formatted_address);
+}
+
+
+
+
+
+// CODE FOR TOGGLES
 
 var incident1shown = "true";
 var incident2shown = "false";
@@ -71,12 +121,18 @@ function toggleIncident3() {
     }
 }
 
+// END OF CODE FOR TOGGLES
+
+
+
+// SEND CODE TO PLACE MARKER ON MAP
+
 function codeAddress() {
     if ( $('#streetAddress').val() ) {
         var address = document.getElementById('streetAddress').value + document.getElementById('city').value + document.getElementById('state').value + document.getElementById('zipCode2').value;
     }
     else {
-        var address = document.getElementById('zipCode').value;
+        var address = document.getElementById('address_autocomplete').value;
     }
     
     geocoder.geocode( { 'address': address}, function(results, status) {
@@ -94,14 +150,16 @@ function codeAddress() {
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
-function saveZIP() {
-    codeAddress();
-    $('#initialForm').slideUp();
-    var callReason = $('#callReason').val();
-    var zipCode = $('#zipCode').val();
-    $('#reasonDisplay').html( callReason );
-    $('#zipDisplay').html( zipCode );
-    $('.initialResults').slideDown();
+// END OF PLACE MARKER CODE
+
+
+
+// RIGHT RAIL CODE
+
+function startCall() {
+    $('.right-rail').slideDown();
+    $('.main').removeClass().addClass('col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2 main');
+    $('.start-new').replaceWith('<button class="btn btn-primary btn-lg pull-right close-call" onclick="endCall()">End Call</button>');
 }
 
 function saveInitial() {
@@ -110,30 +168,14 @@ function saveInitial() {
     $('.profile').slideDown();
 }
 
-function editProfile() {
-    var callReason = $('#callReason').val();
-    var zipCode = $('#zipCode').val();
-    $('#callReason2').val( callReason );
-    $('#zipCode2').val( zipCode );
-    $('.initialResults').slideUp();
-    $('.fullResults').slideUp();
-    $('#fullProfile').slideDown();
+function editSection(elem) {
+    $(elem).parents('.profile-section').find('.input-container').find('p').fadeOut().parent().find('input, select').fadeIn();
+    $(elem).replaceWith('<div class="saveGroup"><button class="btn btn-primary saveBtn" onclick="javascript:saveSection(this);">Save</button><button class="btn btn-default cancelBtn"  onclick="javascript:saveSection(this);">Cancel</button></div>');
 }
 
-function saveProfile() {
-    codeAddress();
-    $('#fullProfile').slideUp();
-    var callReason = $('#callReason2').val();
-    var address = $('#streetAddress').val() + "<br />" + $('#city').val() + ", " + $('#state').val() + " " + $('#zipCode2').val();
-    $('#reasonDisplay2').html( callReason );
-    $('#addressDisplay').html( address );
-    $('.fullResults').slideDown();
-}
-
-function startCall() {
-    $('.right-rail').slideDown();
-    $('.main').removeClass().addClass('col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2 main');
-    $('.start-new').replaceWith('<button class="btn btn-primary btn-lg pull-right close-call" onclick="endCall()">End Call</button>');
+function saveSection(elem) {
+    $(elem).parents('.profile-section').find('.input-container').find('input, select').fadeOut().parent().find('p').fadeIn();
+    $(elem).parents('.saveGroup').replaceWith('<button class="btn btn-link" onclick="javascript:editSection(this);">Edit</button>');
 }
 
 function endCall() {
@@ -144,26 +186,30 @@ function endCall() {
     $('#initialForm').show();
 }
 
-function editSection(elem) {
-    $(elem).parents('.profile-section').find('.input-container').find('p').fadeOut().parent().find('input, select').fadeIn();
-    $(elem).replaceWith('<div class="saveGroup"><button class="btn btn-primary saveBtn" onclick="javascript:saveSection(this);">Save</button><button class="btn btn-default cancelBtn"  onclick="javascript:saveSection(this);">Cancel</button></div>');
-}
-function saveSection(elem) {
-    $(elem).parents('.profile-section').find('.input-container').find('input, select').fadeOut().parent().find('p').fadeIn();
-    $(elem).parents('.saveGroup').replaceWith('<button class="btn btn-link" onclick="javascript:editSection(this);">Edit</button>');
-}
+// END OF RIGHT RAIL CODE
+
+
+
+
+// KNOCKOUT CODE FOR FIELDS
 
 function AppViewModel() {
     this.Name = ko.observable('');
     this.reason = ko.observable('');
     this.phone = ko.observable('');
-    this.street = ko.observable('');
     this.city = ko.observable('');
     this.state = ko.observable('');
     this.ZIP = ko.observable('');
+    this.fullAddress = ko.observable('');
+
 }
 
 ko.applyBindings(new AppViewModel());
+
+// END OF KNOCKOUT CODE
+
+
+// INITIAL LOAD SCRIPTS
 
 $(document).ready(function() {
   $('.right-rail').hide();
