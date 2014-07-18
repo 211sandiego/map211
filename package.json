@@ -1,17 +1,18 @@
 {
-  "name": "map211",
-  "version": "0.0.1",
-  "description": "2-1-1 call handler map site",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "jcasseday",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.6.1"
-  },
-  "engines": {
-    "node": "0.10.x"
-  }
+    "name" : "map211",
+    "version" : "0.0.1",
+    "description" : "2-1-1 call handler map site",
+    "main" : "app.js",
+    "scripts" : {
+        "test" : "echo \"Error: no test specified\" && exit 1"
+    },
+    "author" : "jcasseday",
+    "license" : "ISC",
+    "dependencies" : {
+        "express" : "^4.6.1",
+        "request" : "~2.36.0"
+    },
+    "engines" : {
+        "node" : "0.10.x"
+    }
 }
