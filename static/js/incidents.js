@@ -9,6 +9,7 @@ var incidents = (function () {
             geocoder.geocode({ 'address' : incident.location}, function (results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
                     map.setCenter(results[0].geometry.location);
+                    map.setZoom(incident.mapZoom);
                     // TODO - zoom to specified level
                 }
             });
