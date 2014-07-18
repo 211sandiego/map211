@@ -157,21 +157,32 @@ function startCall () {
 }
 
 function saveInitial () {
-    codeAddress();
-    $('#initialForm').slideUp();
-    $('.profile').slideDown();
+    if ( $('#callReason').val() == "default") {
+        $('#callReason').parents('.form-group').addClass('has-error');
+    } else {
+        $('#callReason').parents('.form-group').removeClass('has-error');
+    }
+    if ( !$('#address_autocomplete').val() ) {
+        $('#address_autocomplete').parents('.form-group').addClass('has-error');
+    } else {
+        $('#address_autocomplete').parents('.form-group').removeClass('has-error');
+    }
+    if ( $('#address_autocomplete').val() && $('#callReason').val() != "default" ) {
+        codeAddress();
+        $('#initialForm').slideUp();
+        $('.profile').slideDown();
+    }
 }
 
 function editSection (elem) {
     $(elem).parents('.profile-section').find('.input-container').find('p').fadeOut().parent().find('input, select').fadeIn();
-    $(elem).replaceWith('<div class="saveGroup"><button class="btn btn-primary saveBtn" onclick="javascript:saveSection(this);">Save</button><button class="btn btn-default cancelBtn"  onclick="javascript:saveSection(this);">Cancel</button></div>');
+    $(elem).replaceWith('<div class="saveGroup"><button class="btn btn-primary btn-block saveBtn" onclick="javascript:saveSection(this);">Save</button>');
 }
 
 function saveSection (elem) {
     if ($(elem).parents('.profile-section').hasClass('contact')) {
         codeAddress2();
-    }
-    ;
+    };
 
     $(elem).parents('.profile-section').find('.input-container').find('input, select').fadeOut().parent().find('p').fadeIn();
     $(elem).parents('.saveGroup').replaceWith('<button class="btn btn-link" onclick="javascript:editSection(this);">Edit</button>');
@@ -184,6 +195,7 @@ function endCall () {
     $('.profile').hide();
     $('#initialForm').show();
     saveCallData();
+    clearCallerInfo();
 }
 
 function saveCallData() {
@@ -198,6 +210,17 @@ function saveCallData() {
         function(data,status){
             // fail silently :-|
         });
+}
+
+function clearCallerInfo() {
+    model.location(null);
+    document.getElementById("address_autocomplete2").value = '';
+    document.getElementById("callReason").value = '';
+    document.getElementById("phoneInput").value = '';
+    document.getElementById("nameInput").value = '';
+    //document.getElementById("nameDisplay").empty();
+    $('#nameDisplay').empty();
+    $('#phoneInput').empty();
 }
 
 // END OF RIGHT RAIL CODE
@@ -233,8 +256,8 @@ $(document).ready(function () {
         $list.empty();
         $list2.empty();
 
-        $list.append("<option value='' label=''> -- Select an Reason --</option>");
-        $list2.append("<option value='' label=''> -- Select an Reason --</option>");
+        $list.append("<option value='default' label=''> -- Select an Reason --</option>");
+        $list2.append("<option value='default' label=''> -- Select an Reason --</option>");
 
         _.each(items, function (item) {
             $list.append("<option value='" + item + "' label='" + item + "'>" + item + "</option>")
