@@ -183,6 +183,23 @@ function endCall () {
     $('.close-call').replaceWith('<button class="btn btn-primary btn-lg pull-right start-new" onclick="startCall()">Start New Call</button>');
     $('.profile').hide();
     $('#initialForm').show();
+    saveCallData();
+}
+
+function saveCallData() {
+
+    // Database service
+    $.post("http://call-log-211-data-service.appspot.com/api/v1.0/calllog/", {
+            "name": model.Name,
+            "callReason": model.reason,
+            "location": model.location,
+            "phone": model.phone
+        },
+        function(data,status){
+            if (status != "success") {
+                alert("Data: " + data + "\nStatus: " + status);
+            }
+        });
 }
 
 // END OF RIGHT RAIL CODE
@@ -194,13 +211,15 @@ function AppViewModel () {
     this.Name = ko.observable('');
     this.reason = ko.observable('');
     this.phone = ko.observable('');
-    this.city = ko.observable('');
-    this.state = ko.observable('');
-    this.ZIP = ko.observable('');
+    this.location = ko.observable('');
+//    this.city = ko.observable('');
+//    this.state = ko.observable('');
+//    this.ZIP = ko.observable('');
 
 }
 
-ko.applyBindings(new AppViewModel());
+var model = new AppViewModel();
+ko.applyBindings(model);
 
 // END OF KNOCKOUT CODE
 
