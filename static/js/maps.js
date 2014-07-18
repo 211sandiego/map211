@@ -196,9 +196,7 @@ function saveCallData() {
             "phone": model.phone
         },
         function(data,status){
-            if (status != "success") {
-                alert("Data: " + data + "\nStatus: " + status);
-            }
+            // fail silently :-|
         });
 }
 
