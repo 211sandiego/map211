@@ -249,10 +249,4 @@ $(document).ready(function () {
 
     $('.profile').hide();
 
-    $('.initialResults').hide();
-
-    $('#fullProfile').hide();
-
-    $('.fullResults').hide();
-
 });
