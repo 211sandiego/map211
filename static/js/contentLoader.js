@@ -39,7 +39,7 @@ var remoteContent = (function () {
         }
     };
 
-    var server = location.href.indexOf('localhost' >=0)?"http://localhost:5000":"";
+    var server = "";//location.href.indexOf('localhost' >=0)?"http://localhost:5000":"";
     var _contentUrl = server + "/content";
     var _callTypeUrl = server + "/calltype";
 
